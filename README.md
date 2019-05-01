@@ -1,3 +1,7 @@
+# Sulu base ddev project
+Please clone it and run "ddev start"
+
+
 # Sulu Minimal Edition
 
 [![GitHub license](https://img.shields.io/github/license/sulu/sulu-minimal.svg)](https://github.com/sulu/sulu-minimal/blob/master/LICENSE)
