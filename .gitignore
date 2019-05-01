@@ -1,3 +1,4 @@
+!.ddev
 
 ###> symfony/framework-bundle ###
 /.env.local
