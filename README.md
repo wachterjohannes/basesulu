@@ -14,6 +14,11 @@ Do composer install with ddev
 $ ddev composer install
 ```
 
+Run composer commands in the web container for db environment to add new packages
+```bash
+$ ddev ssh --service web   
+```
+
 # Sulu Minimal Edition
 
 [![GitHub license](https://img.shields.io/github/license/sulu/sulu-minimal.svg)](https://github.com/sulu/sulu-minimal/blob/master/LICENSE)
