@@ -1,6 +1,18 @@
 # Sulu base ddev project
-Please clone it and run "ddev start"
+Please clone it and run
+```bash
+$ ddev start
+```
 
+Import db dump when ddev is up
+```bash
+$ ddev import-db --src=basesulu.sql
+```
+
+Do composer install with ddev
+```bash
+$ ddev composer install
+```
 
 # Sulu Minimal Edition
 
