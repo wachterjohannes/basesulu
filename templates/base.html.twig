@@ -26,10 +26,22 @@
                         <a href="{{ sulu_content_root_path() }}">Homepage</a>
                     </li>
 
-                    {% for item in sulu_navigation_root_tree('main') %}
+                    {% for item in sulu_navigation_root_tree('main', 2, true) %}
                         <li>
-                            <a href="{{ sulu_content_path(item.url) }}"
-                               title="{{ item.title }}">{{ item.title }}</a>
+                            <a href="{{ sulu_content_path(item.url) }}" title="{{ item.excerpt.title|default(item.title) }}">
+                                {{ item.excerpt.title|default(item.title) }}
+                            </a>
+                            {% if item.children|length > 0 %}
+                                <ul>
+                                    {% for child in item.children|sulu_util_multisort('[published]', 'desc') %}
+                                        <li>
+                                            <a href="{{ sulu_content_path(child.url) }}" title="{{ child.excerpt.title|default(child.title) }}">
+                                                {{ child.excerpt.title|default(child.title) }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
                         </li>
                     {% endfor %}
                 </ul>
