@@ -46,7 +46,7 @@
                     {% endfor %}
                 </ul>
             </nav>
-            <div class="nav-elem nav-elem--language">
+            <div class="nav-elem nav-elem--language" id="navLanguage">
                 {% for key, value in urls %}
                     {% set itemUrl = sulu_content_path(value, request.webspaceKey, key)|default('') %}
 
