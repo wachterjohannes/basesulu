@@ -40,7 +40,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "NCA\\Tests\\": "tests/_support/"
         }
     },
     "autoload-dev": {
