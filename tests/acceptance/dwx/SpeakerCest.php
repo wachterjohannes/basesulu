@@ -16,13 +16,12 @@ class SpeakerCest
     // tests
     public function seperateNameFindItems(AcceptanceTester $I, DWX $page)
     {
-        $searchString = 'golla';
+        $searchString = 'gregor';
         $I->fillField($page::$speakerInputSearch, $searchString);
+        $titles = $I->grabMultiple($page::$speakerItemName);
 
-        $headlines = $I->grabMultiple($page::$speakerItemName);
-
-        foreach ($headlines as $headline) {
-            $I->assertContains($searchString, strtolower($headline));
+        foreach($titles as $title)  {
+            $I->assertContains($searchString, strtolower($title));
         }
     }
 }
