@@ -5,7 +5,6 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
-    Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
     Sulu\Bundle\CoreBundle\SuluCoreBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle::class => ['all' => true],
@@ -14,7 +13,6 @@ return [
     Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
     FOS\RestBundle\FOSRestBundle::class => ['all' => true],
     JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
-    Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle::class => ['all' => true],
     Massive\Bundle\SearchBundle\MassiveSearchBundle::class => ['all' => true],
     FOS\HttpCacheBundle\FOSHttpCacheBundle::class => ['all' => true],
     Sulu\Bundle\SearchBundle\SuluSearchBundle::class => ['all' => true],
@@ -40,12 +38,9 @@ return [
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true, 'test' => true],
     Sulu\Bundle\TestBundle\SuluTestBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
-    // Admin
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true, 'admin' => true],
     Sulu\Bundle\AdminBundle\SuluAdminBundle::class => ['all' => true, 'admin' => true],
-    Sulu\Bundle\CollaborationBundle\SuluCollaborationBundle::class => ['all' => true, 'admin' => true],
     Sulu\Bundle\PreviewBundle\SuluPreviewBundle::class => ['all' => true, 'admin' => true],
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true, 'admin' => true],
-    // Website
     Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true, 'website' => true],
 ];

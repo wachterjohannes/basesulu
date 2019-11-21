@@ -26,7 +26,7 @@
                         <a href="{{ sulu_content_root_path() }}">Homepage</a>
                     </li>
 
-                    {% for item in sulu_navigation_root_tree('main', 2, true) %}
+                    {% for item in sulu_navigation_root_tree('main') %}
                         <li>
                             <a href="{{ sulu_content_path(item.url) }}" title="{{ item.excerpt.title|default(item.title) }}">
                                 {{ item.excerpt.title|default(item.title) }}
@@ -46,19 +46,6 @@
                     {% endfor %}
                 </ul>
             </nav>
-            <div class="nav-elem nav-elem--language" id="navLanguage">
-                {% for key, value in urls %}
-                    {% set itemUrl = sulu_content_path(value, request.webspaceKey, key)|default('') %}
-
-                    {% if itemUrl is not empty %}
-                        <li>
-                            <a href="{{ itemUrl }}" title="{{ key }}">
-                                {{ key }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </div>
         {% endblock %}
     </header>
 

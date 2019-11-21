@@ -19,4 +19,4 @@ if (!$ansi) {
 }
 
 $suluContext = SuluKernel::CONTEXT_ADMIN;
-include __DIR__ . DIRECTORY_SEPARATOR. 'console.php';
+include __DIR__ . DIRECTORY_SEPARATOR . 'console.php';

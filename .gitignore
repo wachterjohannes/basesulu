@@ -1,4 +1,3 @@
-!.ddev
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -18,15 +17,6 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-
-
-# bin
-/bin/*
-!/bin/console
-!/bin/console.php
-!/bin/websiteconsole
-!/bin/adminconsole
-
 # var
 /var/*
 !/var/.gitkeep
@@ -43,7 +33,7 @@
 
 # npm
 package-lock.json
-/node_modules
+node_modules
 
 # phpunit
 .phpunit
