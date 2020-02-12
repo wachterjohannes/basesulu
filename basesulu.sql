@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.2.22-MariaDB, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.16  Distrib 10.2.27-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: db
 -- ------------------------------------------------------
--- Server version	10.2.22-MariaDB-1:10.2.22+maria~bionic-log
+-- Server version	10.2.27-MariaDB-1:10.2.27+maria~bionic-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -644,12 +644,10 @@ CREATE TABLE `co_addresses` (
   `longitude` double DEFAULT NULL,
   `note` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idAdressTypes` int(11) NOT NULL,
-  `idCountries` int(11) DEFAULT NULL,
+  `countryCode` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_26E9A6142A37021A` (`idAdressTypes`),
-  KEY `IDX_26E9A614A18CC0FB` (`idCountries`),
-  CONSTRAINT `FK_26E9A6142A37021A` FOREIGN KEY (`idAdressTypes`) REFERENCES `co_address_types` (`id`),
-  CONSTRAINT `FK_26E9A614A18CC0FB` FOREIGN KEY (`idCountries`) REFERENCES `co_countries` (`id`)
+  CONSTRAINT `FK_26E9A6142A37021A` FOREIGN KEY (`idAdressTypes`) REFERENCES `co_address_types` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1088,31 +1086,6 @@ LOCK TABLES `co_contacts` WRITE;
 /*!40000 ALTER TABLE `co_contacts` DISABLE KEYS */;
 INSERT INTO `co_contacts` VALUES (1,NULL,'Adam',NULL,'Ministrator',NULL,NULL,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-08-26 20:33:26','2019-08-26 20:33:26',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `co_contacts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `co_countries`
---
-
-DROP TABLE IF EXISTS `co_countries`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `co_countries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `co_countries`
---
-
-LOCK TABLES `co_countries` WRITE;
-/*!40000 ALTER TABLE `co_countries` DISABLE KEYS */;
-INSERT INTO `co_countries` VALUES (1,'Afghanistan','AF'),(2,'Åland Islands','AX'),(3,'Albania','AL'),(4,'Algeria','DZ'),(5,'American Samoa','AS'),(6,'Andorra','AD'),(7,'Angola','AO'),(8,'Anguilla','AI'),(9,'Antarctica','AQ'),(10,'Antigua and Barbuda','AG'),(11,'Argentina','AR'),(12,'Armenia','AM'),(13,'Aruba','AW'),(14,'Australia','AU'),(15,'Austria','AT'),(16,'Azerbaijan','AZ'),(17,'Bahamas','BS'),(18,'Bahrain','BH'),(19,'Bangladesh','BD'),(20,'Barbados','BB'),(21,'Belarus','BY'),(22,'Belgium','BE'),(23,'Belize','BZ'),(24,'Benin','BJ'),(25,'Bermuda','BM'),(26,'Bhutan','BT'),(27,'Bolivia','BO'),(28,'Bonaire, Sint Eustatius and Saba','BQ'),(29,'Bosnia and Herzegovina','BA'),(30,'Botswana','BW'),(31,'Bouvet Island','BV'),(32,'Brazil','BR'),(33,'British Indian Ocean Territory','IO'),(34,'Brunei Darussalam','BN'),(35,'Bulgaria','BG'),(36,'Burkina Faso','BF'),(37,'Burundi','BI'),(38,'Cambodia','KH'),(39,'Cameroon','CM'),(40,'Canada','CA'),(41,'Cape Verde','CV'),(42,'Cayman Islands','KY'),(43,'Central African Republic','CF'),(44,'Chad','TD'),(45,'Chile','CL'),(46,'China','CN'),(47,'Christmas Island','CX'),(48,'Cocos (Keeling) Islands','CC'),(49,'Colombia','CO'),(50,'Comoros','KM'),(51,'Congo','CG'),(52,'Cook Islands','CK'),(53,'Costa Rica','CR'),(54,'Côte d\'Ivoire','CI'),(55,'Croatia','HR'),(56,'Cuba','CU'),(57,'Curaçao','CW'),(58,'Cyprus','CY'),(59,'Czech Republic','CZ'),(60,'Denmark','DK'),(61,'Djibouti','DJ'),(62,'Dominica','DM'),(63,'Dominican Republic','DO'),(64,'Ecuador','EC'),(65,'Egypt','EG'),(66,'El Salvador','SV'),(67,'Equatorial Guinea','GQ'),(68,'Eritrea','ER'),(69,'Estonia','EE'),(70,'Ethiopia','ET'),(71,'Falkland Islands','FK'),(72,'Faroe Islands','FO'),(73,'Fiji','FJ'),(74,'Finland','FI'),(75,'France','FR'),(76,'French Guiana','GF'),(77,'French Polynesia','PF'),(78,'French Southern Territories','TF'),(79,'Gabon','GA'),(80,'Gambia','GM'),(81,'Georgia','GE'),(82,'Germany','DE'),(83,'Ghana','GH'),(84,'Gibraltar','GI'),(85,'Greece','GR'),(86,'Greenland','GL'),(87,'Grenada','GD'),(88,'Guadeloupe','GP'),(89,'Guam','GU'),(90,'Guatemala','GT'),(91,'Guernsey','GG'),(92,'Guinea','GN'),(93,'Guinea-Bissau','GW'),(94,'Guyana','GY'),(95,'Haiti','HT'),(96,'Heard Island and McDonald Islands','HM'),(97,'Holy See','VA'),(98,'Honduras','HN'),(99,'Hong Kong','HK'),(100,'Hungary','HU'),(101,'Iceland','IS'),(102,'India','IN'),(103,'Indonesia','ID'),(104,'Iran','IR'),(105,'Iraq','IQ'),(106,'Ireland','IE'),(107,'Isle of Man','IM'),(108,'Israel','IL'),(109,'Italy','IT'),(110,'Jamaica','JM'),(111,'Japan','JP'),(112,'Jersey','JE'),(113,'Jordan','JO'),(114,'Kazakhstan','KZ'),(115,'Kenya','KE'),(116,'Kiribati','KI'),(117,'Korea','KR'),(118,'Kuwait','KW'),(119,'Kyrgyzstan','KG'),(120,'Lao People\'s Democratic Republic','LA'),(121,'Latvia','LV'),(122,'Lebanon','LB'),(123,'Lesotho','LS'),(124,'Liberia','LR'),(125,'Libya','LY'),(126,'Liechtenstein','LI'),(127,'Lithuania','LT'),(128,'Luxembourg','LU'),(129,'Macao','MO'),(130,'Macedonia','MK'),(131,'Madagascar','MG'),(132,'Malawi','MW'),(133,'Malaysia','MY'),(134,'Maldives','MV'),(135,'Mali','ML'),(136,'Malta','MT'),(137,'Marshall Islands','MH'),(138,'Martinique','MQ'),(139,'Mauritania','MR'),(140,'Mauritius','MU'),(141,'Mayotte','YT'),(142,'Mexico','MX'),(143,'Micronesia','FM'),(144,'Moldova','MD'),(145,'Monaco','MC'),(146,'Mongolia','MN'),(147,'Montenegro','ME'),(148,'Montserrat','MS'),(149,'Morocco','MA'),(150,'Mozambique','MZ'),(151,'Myanmar','MM'),(152,'Namibia','NA'),(153,'Nauru','NR'),(154,'Nepal','NP'),(155,'Netherlands','NL'),(156,'New Caledonia','NC'),(157,'New Zealand','NZ'),(158,'Nicaragua','NI'),(159,'Niger','NE'),(160,'Nigeria','NG'),(161,'Niue','NU'),(162,'Norfolk Island','NF'),(163,'Northern Mariana Islands','MP'),(164,'Norway','NO'),(165,'Oman','OM'),(166,'Pakistan','PK'),(167,'Palau','PW'),(168,'Palestine','PS'),(169,'Panama','PA'),(170,'Papua New Guinea','PG'),(171,'Paraguay','PY'),(172,'Peru','PE'),(173,'Philippines','PH'),(174,'Pitcairn','PN'),(175,'Poland','PL'),(176,'Portugal','PT'),(177,'Puerto Rico','PR'),(178,'Qatar','QA'),(179,'Réunion','RE'),(180,'Romania','RO'),(181,'Russian Federation','RU'),(182,'Rwanda','RW'),(183,'Saint Barthélemy','BL'),(184,'Saint Helena, Ascension and Tristan da Cunha','SH'),(185,'Saint Kitts and Nevis','KN'),(186,'Saint Lucia','LC'),(187,'Saint Martin','MF'),(188,'Saint Pierre and Miquelon','PM'),(189,'Saint Vincent and the Grenadines','VC'),(190,'Samoa','WS'),(191,'San Marino','SM'),(192,'Sao Tome and Principe','ST'),(193,'Saudi Arabia','SA'),(194,'Senegal','SN'),(195,'Serbia','RS'),(196,'Seychelles','SC'),(197,'Sierra Leone','SL'),(198,'Singapore','SG'),(199,'Sint Maarten','SX'),(200,'Slovakia','SK'),(201,'Slovenia','SI'),(202,'Solomon Islands','SB'),(203,'Somalia','SO'),(204,'South Africa','ZA'),(205,'South Georgia and the South Sandwich Islands','GS'),(206,'South Sudan','SS'),(207,'Spain','ES'),(208,'Sri Lanka','LK'),(209,'Sudan','SD'),(210,'Suriname','SR'),(211,'Svalbard and Jan Mayen','SJ'),(212,'Swaziland','SZ'),(213,'Sweden','SE'),(214,'Switzerland','CH'),(215,'Syrian Arab Republic','SY'),(216,'Taiwan','TW'),(217,'Tajikistan','TJ'),(218,'Tanzania','TZ'),(219,'Thailand','TH'),(220,'Timor-Leste','TL'),(221,'Togo','TG'),(222,'Tokelau','TK'),(223,'Tonga','TO'),(224,'Trinidad and Tobago','TT'),(225,'Tunisia','TN'),(226,'Turkey','TR'),(227,'Turkmenistan','TM'),(228,'Turks and Caicos Islands','TC'),(229,'Tuvalu','TV'),(230,'Uganda','UG'),(231,'Ukraine','UA'),(232,'United Arab Emirates','AE'),(233,'United Kingdom','GB'),(234,'United States','US'),(235,'United States Minor Outlying Islands','UM'),(236,'Uruguay','UY'),(237,'Uzbekistan','UZ'),(238,'Vanuatu','VU'),(239,'Venezuela','VE'),(240,'Viet Nam','VN'),(241,'Virgin Islands (British)','VG'),(242,'Virgin Islands (U.S.)','VI'),(243,'Wallis and Futuna','WF'),(244,'Western Sahara','EH'),(245,'Yemen','YE'),(246,'Zambia','ZM'),(247,'Zimbabwe','ZW');
-/*!40000 ALTER TABLE `co_countries` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -2454,7 +2427,7 @@ CREATE TABLE `se_user_settings` (
 
 LOCK TABLES `se_user_settings` WRITE;
 /*!40000 ALTER TABLE `se_user_settings` DISABLE KEYS */;
-INSERT INTO `se_user_settings` VALUES ('\"4b3d84e3-e06a-4f2a-9f91-05c866b9c68d\"','sulu_admin.list_store.pages.page_list_example.active',1);
+INSERT INTO `se_user_settings` VALUES ('true','sulu_admin.application.navigation_pinned',1),('\"4b3d84e3-e06a-4f2a-9f91-05c866b9c68d\"','sulu_admin.list_store.pages.page_list_example.active',1);
 /*!40000 ALTER TABLE `se_user_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2497,7 +2470,7 @@ CREATE TABLE `se_users` (
 
 LOCK TABLES `se_users` WRITE;
 /*!40000 ALTER TABLE `se_users` DISABLE KEYS */;
-INSERT INTO `se_users` VALUES (1,'admin','$2y$13$dzrd0PShHLE344iIvtzqDutuMTvGt2BNWZokhJmv2yTnY0SniV4Ua','en','nccZ+wYMK3///LaIlkvaQI/1KZ4RGejMSWgABVoMhak=',0,1,'2019-08-26 20:33:40',NULL,NULL,NULL,NULL,NULL,'d73c6fe53c5c6eb130d70d512e303d8b','admin@example.com',1);
+INSERT INTO `se_users` VALUES (1,'admin','$2y$13$dzrd0PShHLE344iIvtzqDutuMTvGt2BNWZokhJmv2yTnY0SniV4Ua','en','nccZ+wYMK3///LaIlkvaQI/1KZ4RGejMSWgABVoMhak=',0,1,'2020-01-21 16:50:25',NULL,NULL,NULL,NULL,NULL,'d73c6fe53c5c6eb130d70d512e303d8b','admin@example.com',1);
 /*!40000 ALTER TABLE `se_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2624,4 +2597,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-26 20:42:23
+-- Dump completed on 2020-02-12 14:45:57
