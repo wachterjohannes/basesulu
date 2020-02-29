@@ -331,6 +331,9 @@
     "sulu/sulu": {
         "version": "2.0.2"
     },
+    "sulu/sulu-form-bundle": {
+        "version": "2.0-dev"
+    },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"
     },
