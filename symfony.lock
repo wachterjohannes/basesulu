@@ -585,9 +585,6 @@
             "config/packages/test/swiftmailer.yaml"
         ]
     },
-    "symfony/templating": {
-        "version": "v4.4.0"
-    },
     "symfony/thanks": {
         "version": "v1.1.0"
     },
